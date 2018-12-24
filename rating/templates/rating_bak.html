@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Multi level dropdown menu BS3 - Bootsnipp.com</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
+}
+
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+    </style>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+        <h2>Multi level dropdown menu in Bootstrap 3</h2>
+        <!-- <hr> -->
+        <div class="dropdown">
+            <a id="dLabel" role="button" data-toggle="dropdown" class="btn btn-primary" data-target="#" >
+                Dropdown <span class="caret"></span>
+            </a>
+    		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                <!-- <li><a tabindex="-1" href="#">Second level</a></li> -->
+                    <li class="dropdown-submenu">
+                    <a href="#">专业 1..</a>
+                    <ul class="dropdown-menu">
+                        <li>教师 1</li>
+                    	<li>教师 2</li>
+                    </ul>
+                    </li>
+                
+                    <li class="dropdown-submenu">
+                    <a href="#">专业 2..</a>
+                    <ul class="dropdown-menu">
+                        <li input name=teacher 3>教师 3</li>
+                        <li>教师 4</li>
+                    </ul>
+                    </li>
+
+            </ul>
+        </div>
+	</div>
+</div>
+
+        <form method="post" action="/rating/">
+  {% csrf_token %}
+  <!-- Split button -->
+
+        <!-- Nav -->
+<!--            <nav id="nav">
+                <ul class="container">
+                    <li>
+                    <select id="selBig"  onchange="addOptions(this.value)"><option value="">请选择...</option><option value="1">农学院</option><option value="2">理学院</option></select><select id="selSmall" ><option value="">请选择...</option></select>
+                    <script type="text/javascript">
+                        var data = {};
+                        data['k'] = [{t:'请选择...',v:''}];
+                        data['k1'] = [{ t: '教师1 ', v: '教师1 ' }, { t: '教师2 ', v: '教师2 ' }, { t: '教师3 ', v: '教师3 '}];
+                        data['k2'] = [{ t: '教师4 ', v: '教师4 ' }, { t: '教师5 ', v: '教师5 ' }, { t: '教师6 ', v: '教师6 '}];
+                        //同理生成其他大类的子数据，结构同上面的
+                        function addOptions(v) {
+                            var sel = document.getElementById('selSmall')
+                            , arr = data['k' + v]; //获取对应的数据源
+                            sel.options.length = 0; //清空原来的option
+                            for (var i = 0, j = arr.length; i < j; i++) {
+                     
+                                sel.options.add(new Option(arr[i].t, arr[i].v));
+                            }
+                        }
+                    </script>
+
+                    </li>
+
+                </ul>
+            </nav> -->
+
+        <!-- Home -->
+
+  <div class="form-group" >
+    <label for="rating_0" class="control-label">1. 着装合理，治学严谨。严于律己，从不迟到早退:</label>
+    <input id="rating_0" name="rating_0" class="rating" data-min="0" data-max='5' data-step="0.5" data-language='zh'>
+
+    <label for="rating_1" class="control-label">2. 教学认真，授课内容详细，课堂效率高:</label>
+    <input id="rating_1" name="rating_1" class="rating" data-min="0" data-max="5" data-step="0.5" data-language='zh'>
+
+    <label for="rating_2" class="control-label">3. 教学方法多样，重点与难点内容区分清楚，讲解得当:</label>
+    <input id="rating_2" name="rating_2" class="rating" data-min="0" data-max="5" data-step="0.5" data-language='zh'>
+
+    <label for="rating_3" class="control-label">4. any more ?</label>
+    <input id="rating_3" name="rating_3" class="rating" data-min="0" data-max="5" data-step="0.5" data-language='zh'>
+
+ <button type="submit" class="btn btn-default">提交</button>
+</form>
+
+<script type="text/javascript">
+
+</script>
+</body>
+</html>

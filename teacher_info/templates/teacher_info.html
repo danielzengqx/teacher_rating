@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>教师信息</title>
+</head>
+<body>
+		<h3>教师</h3>
+	{% for t in teachers %}
+		<p> 名字：</p>
+		<p>{{ t.name }} </p>
+		<p>编号：</p>
+		<p>{{ t.tid }} </p>
+
+		<p>{{ t.score1_content }} </p>
+		<p>{{ t.score1 }} </p>
+
+		<p>{{ t.score2_content }} </p>
+		<p>{{ t.score2 }} </p>
+
+		<p>{{ t.score3_content }} </p>
+		<p>{{ t.score3 }} </p>
+
+		<p>{{ t.score4_content }} </p>
+		<p>{{ t.score4 }} </p>
+
+		<p> 专业： </p>
+		<p>{{ t.major}} </p>
+
+		<p> 简介： </p>
+		<p>{{ t.intro }} </p>
+
+		
+
+		
+
+	{% endfor %}
+</body>
+</html>

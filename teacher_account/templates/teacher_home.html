@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+<table width="50%" align="center" border="0" class="check-table" cellspacing="1" cellpadding="5">
+    <tr>
+        <th width="11%"><input type="checkbox" class="checkall" /></th>
+        <th width="44%">Product Name</th>
+        <th width="24%">Quantity<br /></th>
+        <th width="21%">Action</th>
+    </tr>
+    <tr>
+        <td align="center"><input type="checkbox" /></td>
+        <td align="center"><input type="text" value="Produt One" disabled="disabled" /></td>
+        <td align="center"><input type="text" value="" disabled="disabled" /></td>
+        <td align="center"><a href="#" class="edit">Edit</a> | <a href="#">Delete</a></td>
+    </tr>
+    <tr>
+        <td align="center"><input type="checkbox" /></td>
+        <td align="center"><input type="text" disabled="disabled" value="Product Two" /></td>
+        <td align="center"><input type="text" value="" disabled="disabled" /></td>
+        <td align="center"><a href="#" class="edit">Edit</a> | <a href="#">Delete</a></td>
+    </tr>
+     <tr>
+        <td align="center"><input type="checkbox" /></td>
+        <td align="center"><input type="text" disabled="disabled" value="Product Two" /></td>
+        <td align="center"><input type="text" value="" disabled="disabled" /></td>
+        <td align="center"><a href="#" class="edit">Edit</a> | <a href="#">Delete</a></td>
+    </tr>
+     <tr>
+        <td align="center"><input type="checkbox" /></td>
+        <td align="center"><input type="text" disabled="disabled" value="Product Two" /></td>
+        <td align="center"><input type="text" value="" disabled="disabled" /></td>
+        <td align="center"><a href="#" class="edit">Edit</a> | <a href="#">Delete</a></td>
+    </tr>
+</table>
+
+</body>
+
+<script type="text/javascript">
+    $(function(){
+    $('.checkall').on('click', function(){
+        $(this).closest('.check-table').find(':checkbox').prop('checked',this.checked);
+    })
+
+    $(".check-table tr td:nth-child(4) a:last-child").on("click", function() {
+        $(this).closest(".check-table tr").remove();
+    });
+    
+    $('body').on('click','.edit', function(){
+        if($(this).hasClass('on')){
+            disabled = true;
+            str = 'Edit';
+            $(this).removeClass('on');
+            
+        }else{
+             disabled = false;
+            $(this).addClass('on');
+            str = 'Save';
+        }
+         $(this).parents('tr').find('input').attr('disabled',disabled); 
+         $(this).text(str);
+    });
+
+   
+})
+    
+</script>
+</html>

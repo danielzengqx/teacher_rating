@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>教师评分</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootsnipp.min.css' %}" rel="stylesheet">    
+
+    <style type="text/css">
+        /***
+Bootstrap Line Tabs by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+***/
+
+/* Tabs panel */
+.tabbable-panel {
+  border:1px solid #eee;
+  padding: 10px;
+}
+
+/* Default mode */
+.tabbable-line > .nav-tabs {
+  border: none;
+  margin: 0px;
+}
+.tabbable-line > .nav-tabs > li {
+  margin-right: 2px;
+}
+.tabbable-line > .nav-tabs > li > a {
+  border: 0;
+  margin-right: 0;
+  color: #737373;
+}
+.tabbable-line > .nav-tabs > li > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open, .tabbable-line > .nav-tabs > li:hover {
+  border-bottom: 4px solid #fbcdcf;
+}
+.tabbable-line > .nav-tabs > li.open > a, .tabbable-line > .nav-tabs > li:hover > a {
+  border: 0;
+  background: none !important;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.open > a > i, .tabbable-line > .nav-tabs > li:hover > a > i {
+  color: #a6a6a6;
+}
+.tabbable-line > .nav-tabs > li.open .dropdown-menu, .tabbable-line > .nav-tabs > li:hover .dropdown-menu {
+  margin-top: 0px;
+}
+.tabbable-line > .nav-tabs > li.active {
+  border-bottom: 4px solid #f3565d;
+  position: relative;
+}
+.tabbable-line > .nav-tabs > li.active > a {
+  border: 0;
+  color: #333333;
+}
+.tabbable-line > .nav-tabs > li.active > a > i {
+  color: #404040;
+}
+.tabbable-line > .tab-content {
+  margin-top: -3px;
+  background-color: #fff;
+  border: 0;
+  border-top: 1px solid #eee;
+  padding: 15px 0;
+}
+.portlet .tabbable-line > .tab-content {
+  padding-bottom: 0;
+}
+
+/* Below tabs mode */
+
+.tabbable-line.tabs-below > .nav-tabs > li {
+  border-top: 4px solid transparent;
+}
+.tabbable-line.tabs-below > .nav-tabs > li > a {
+  margin-top: 0;
+}
+.tabbable-line.tabs-below > .nav-tabs > li:hover {
+  border-bottom: 0;
+  border-top: 4px solid #fbcdcf;
+}
+.tabbable-line.tabs-below > .nav-tabs > li.active {
+  margin-bottom: -2px;
+  border-bottom: 0;
+  border-top: 4px solid #f3565d;
+}
+.tabbable-line.tabs-below > .tab-content {
+  margin-top: -10px;
+  border-top: 0;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 15px;
+}
+    </style>
+    <style type="text/css">
+        /* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 2px;
+  /*padding-top: 0;*/
+  margin-top: 0;
+  border-width: 0;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+
+#nav {
+border-bottom-color: red;
+border-width: 2px;
+
+}
+
+@grid-float-breakpoint {
+
+
+}
+
+  
+body { padding-top: 1px; }
+
+    </style>    
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+
+<!-- 			<nav class="navbar navbar-default navbar-fixed-top" style="border-bottom-color: #7cafff;">
+			  <div class="container">
+			    <ul class="nav navbar-nav navbar-right">
+			        <li class="dropdown " >
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+			          <span class="glyphicon glyphicon-menu-hamburger " aria-hidden="true" style="color: #7cafff;" ></span>
+			          </a>
+			          <ul class="dropdown-menu">
+			            <li><a href="/">主页</a></li>
+			            <li><a href="/rating">教师评分</a></li>
+			          </ul>
+			        </li>
+			    </ul>
+
+			  </div>
+			</nav> -->
+
+
+<nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation" style="z-index: 9999999">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="true">
+        <span class="sr-only">教师信息</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="animbrand">
+        <a class="navbar-brand animate" href="/">教师评分系统</a>
+      </div>
+    </div>
+<script src="/js/BSAcpc.js" async=""></script>
+<div class="bsa-apiads hidden-sm hidden-xs"></div>
+    <div class="navbar-collapse collapse out" id="bs-example-navbar-collapse-2" aria-expanded="false" style="">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/" >主页 </a>  
+          <a href="/rating" >评分 </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>			
+
+
+
+<!--
+Bootstrap Line Tabs by @keenthemes
+A component of Metronic Theme - #1 Selling Bootstrap 3 Admin Theme in Themeforest: http://j.mp/metronictheme
+Licensed under MIT
+-->
+<div class="container">
+    <div class="row">
+		<div class="col-md-12">
+			<h3>教师信息</h3>
+			<div class="tabbable-panel">
+				<div class="tabbable-line">
+					<ul class="nav nav-tabs ">
+						{% for major in teacher_major %}	
+
+							{% if forloop.first %}
+								<li class="active">
+									<a href="#tab_{{ major.id }}" data-toggle="tab">
+										{{ major.name }} </a>
+								</li>
+							{% else %}
+								<li>
+									<a href="#tab_{{ major.id }}" data-toggle="tab">
+										{{ major.name }} </a>
+								</li>
+							{% endif %}
+						{% endfor %}									
+
+					</ul>
+					<div class="tab-content" id="myTabContent">
+						{% for major, teachers in teacher_major.iteritems %}	
+							{% if forloop.first %}
+								<div class="tab-pane active" id="tab_{{ major.id }}">
+									<div id="page_tab{{ major.id }}">
+										{% for t in teachers %}
+
+										<!-- {% if t.major.name == major.name %} -->
+										    <div class="row">
+										    <div class="col-xs-12 col-sm-6 col-md-6">
+										        <div class="well well-sm">
+										            <div class="row">
+										                <div class="col-sm-6 col-md-4 col-xs-4">
+										                	<a href="detail/{{ t.id }}">
+										                    	<img src="{%static 'img/dog.jpeg' %}"  alt="" class="img-rounded img-responsive" />
+										                    </a>
+
+										                </div>
+										                <div class="col-sm-6 col-md-8 col-xs-8">
+										                	<a href="detail/{{ t.id }}">
+										                    	<h4>{{ t.name }}</h4>
+										                    </a>
+
+
+
+										                    <div class="rating">
+										                    {% for i in t.stars_filled %}
+										                        <span class="glyphicon glyphicon-star" style="color: #ebab3c"></span>
+										                    {% endfor %}
+
+										                    {% for i in t.stars_empty %}
+										                        </span><span class="glyphicon glyphicon-star-empty"></span>
+										                    {% endfor %}
+															</div>
+										                    <div>
+										                        <span class="glyphicon glyphicon-user"></span>{{ t.score1_count}} 个评分
+										                    </div>
+
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+										</div>
+
+											<!-- {% endif %}								 -->
+										{% endfor %}
+									</div>
+								</div>
+							{% else %}
+								<div class="tab-pane" id="tab_{{forloop.counter }}">
+									<div id="page_tab{{forloop.counter }}">
+										{% for t in teachers %}
+
+										{% if t.major.name == major.name %}
+
+
+										    <div class="row">
+										    <div class="col-xs-12 col-sm-6 col-md-6">
+										        <div class="well well-sm">
+										            <div class="row">
+										                <div class="col-sm-6 col-md-4 col-xs-4">
+										                	<a href="detail/{{ t.id }}">
+										                    	<img src="{%static 'img/dog.jpeg' %}"  alt="" class="img-rounded img-responsive" />
+										                    </a>
+
+										                </div>
+										                <div class="col-sm-6 col-md-8 col-xs-8">
+										                	<a href="detail/{{ t.id }}">
+										                    	<h4>{{ t.name }}</h4>
+										                    </a>
+
+
+
+										                    <div class="rating">
+										                    {% for i in t.stars_filled %}
+										                        <span class="glyphicon glyphicon-star" style="color: #ebab3c"></span>
+										                    {% endfor %}
+
+										                    {% for i in t.stars_empty %}
+										                        </span><span class="glyphicon glyphicon-star-empty"></span>
+										                    {% endfor %}
+															</div>
+										                    <div>
+										                        <span class="glyphicon glyphicon-user"></span>{{ t.score1_count}} 个评分
+										                    </div>
+
+										                </div>
+										            </div>
+										        </div>
+										    </div>
+										</div>
+
+											{% endif %}								
+										{% endfor %}
+									</div>
+								</div>
+							{% endif %}
+						{% endfor %}									
+
+					</div>
+				</div>
+			</div>
+			<!-- end of tabbable-panel-->
+						    <div class="row">
+						    	<div class="col-xs-6 col-sm-6 col-xs-offset-3 col-md-6 col-sm-offset-3" ">
+									<button class="btn btn-lg btn-primary btn-block" id="load_more" style="background-color: #eee; color: black; border-color: #e2e2e2;">加载更多
+									</button>
+								</div>
+						    </div>
+
+		</div>
+	</div>
+</div>
+<!-- <br>
+<br>
+<center>
+<strong>Powered by <a href="http://j.mp/metronictheme" target="_blank">KeenThemes</a></strong>
+</center>
+<br>
+<br> -->
+
+
+
+
+<script type="text/javascript">
+
+
+$(document).ready(function(){
+	var page=1
+
+  	$("#load_more").click(function(){
+  		var $tab = $('#myTabContent'), $active = $tab.find('.tab-pane.active');
+  		  		var $tab_num = $active.attr("id")
+
+  		htmlobj=$.ajax({url:"/teacher_info/load_more/" + $tab_num + "/" + page,async:false});
+  		page = page +1 
+  		$("#" + $tab_num).html(htmlobj.responseText);
+    	// alert($tab_num);
+
+  		// alert("hello" + page);
+
+  });
+
+
+
+});
+
+
+</script>
+</body>
+</html>

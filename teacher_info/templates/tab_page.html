@@ -1,0 +1,40 @@
+{% load staticfiles%}						    
+{% for t in teachers_major3 %}
+    <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="well well-sm">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-xs-4">
+                	<a href="detail/{{ t.tid }}">
+                    	<img src="{%static 'img/dog.jpeg' %}"  alt="" class="img-rounded img-responsive" />
+                    </a>
+
+                </div>
+                <div class="col-sm-6 col-md-8 col-xs-8">
+                	<a href="detail/{{ t.tid }}">
+                    	<h4>{{ t.name }}</h4>
+                    </a>
+
+
+				<!-- star -->
+                <!-- <div class="col-xs-12 col-md-6 text-left"> -->
+                    <div class="rating">
+                    {% for i in t.stars_filled %}
+                        <span class="glyphicon glyphicon-star" style="color: #ebab3c"></span>
+                    {% endfor %}
+
+                    {% for i in t.stars_empty %}
+                        </span><span class="glyphicon glyphicon-star-empty"></span>
+                    {% endfor %}
+					</div>
+                    <div>
+                        <span class="glyphicon glyphicon-user"></span>{{ t.score1_count}} 个评分
+                    </div>
+                <!-- </div> -->
+                <!-- end star -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}

@@ -1,0 +1,13 @@
+
+
+#python
+*.py[cod]
+
+#database
+db.sqlite3
+
+#static root files
+static/static_root/*
+
+#migrations
+*/migrations/*

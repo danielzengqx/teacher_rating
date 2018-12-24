@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>学校概况</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootsnipp.min.css' %}" rel="stylesheet">    
+    <style type="text/css">
+        /* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+    </style>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/formvalidator.js' %}" charset="UTF-8"></script> 
+    <script type="text/javascript" src="{% static 'js/formvalidatorregex.js' %}" charset="UTF-8"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation" style="z-index: 9999999">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="true">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="animbrand">
+        <a class="navbar-brand animate" href="/">教师评分系统</a>
+      </div>
+    </div>
+<!-- <script src="/js/BSAcpc.js" async=""></script> -->
+<div class="bsa-apiads hidden-sm hidden-xs"></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse out" id="bs-example-navbar-collapse-2" aria-expanded="false" style="">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/" >主页 </a>  
+          <a href="/rating" >评分 </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <h2>学校概况</h2>
+        <hr class=colorgraph>
+
+        <p>
+            惠州工程技术学校是由创办于1950年的“全国百强农校”惠州农业学校，与创办于1973年的享有“粤东工科职教第一品牌”美誉的惠州工业科技学校，于2012年11月经惠州市委市政府批准重组成立的公办中等职业学校。重组后的新学校将在原有两所学校均为广东省示范性中职学校、国家重点中职学校，并且分别形成了广受赞誉、特色鲜明的品牌优势的基础上，按照高标准规划、高起点建设的要求，致力于打造成为高度适应现代产业和现代职业教育发展要求的我国南方职教名校，并在国家“十二五”规划期间升格为惠州工程技术学院。<br>
+            <br>
+          新成立的学校毗邻汤泉风景区，山水相映，风景优美；地处北上河源、梅州，东达汕尾、汕头，西通东莞、广州，南抵深圳的高速交通枢纽连接地带，交通非常便利快捷。学校占地面积达450多亩，在校生规模9200多人，为我省又一艘职教“航母”。学校设有生物工程、园林工程、交通工程、电子工程、机电工程、信息工程、环境工程、管理工程等八个系部，专业设置紧贴珠三角经济圈现代工业、现代农业、现代服务业等产业需求，职业发展前景好。<br>
+          <br>
+      学校目前实行“一校两区”管理模式，原惠州工业科技学校为“西湖校区”，原惠州农业学校为“汤泉校区”。学校新校区扩建、新建工程已完成三分之二，其中一期工程已投入使用，二期工程将于2014年启用，三期工程也将于2014年启动。新校区全部建成后，一座既有田园风光、又充满现代气息；既有雄厚师资，又有先进教育理念；既有现代教育制度，又有和谐人文精神的现代化职教园区，将成为广大学子孜孜求学，养性修为，实现职业追求和人生梦想的理想选择。来吧，同学们，成就职业生涯，请选择工程技术；实现人生理想，请选择工程技术。在这里，有我们等着你，一起为我们每个人的梦想插上翅膀，翱翔蓝天。<br>
+</p>
+<h3>【办学特色】</h3>
+
+<h4>【农科全国百强】</h4>
+    <p>
+        农林类专业办学水平在全省中等职业学校中处于先进行列，拥有国家园艺中心，国家职业技能鉴定所，省级农业职教示范基地，省级中职教育实训中心，农林类专业实训设施设备总值近3000万元，是国家农民科技培训星火学校。在全国首推动植物生长过程课程体系，推行“三合”德育和“111”技能竞赛，成绩突出。曾获得国家和省职业院校技能大赛39个大奖，是惠州目前唯一有资格代表广东省参加国家技能竞赛，同时也是唯一获得过国家技能竞赛奖的学校，被誉为广东省农林类职教的旗帜。
+    </p>
+<h4>【工科粤东最强】</h4>
+    <p>
+      理工类专业在粤东地区开办历史最长，门类最全，实力最强。拥有电工电子与自动化国家级实训基地，国家技能鉴定所，惠州市公共实训基地，浙江大学数控技术惠州基地。校内实训基地有设备先进的58间理工类现代化的实训室和一体化教室，设备总值超过4000万元。在历届市级各类技能竞赛中，我校在工科类项目中始终以绝对优势成绩独占鳌头，是我市唯一在省级技能竞赛工科项目中取得过一等奖的学校，被誉为我市乃至整个粤东地区工科职业教育的一面旗帜。
+    </p>
+<h4>【读中职上大学】</h4>
+    <p>
+        我校为广东省教育厅2010年第一批批准的可实行中高职衔接三二分段人才培养模式 的中职学校，截止2013年，我校共有电子技术、数控技术、计算机应用、畜牧兽医、园林技术等五个专业的学生完成中职阶段课程学习后可进入对口衔接的全日制3A院校接受大专学历教育，总招生指标达660人。中高职衔接人才培养模式为广大学生提供了一条由中职升入大专的便捷升学途径。我校2010级电子应用专业是我省第一批试点专业，80位学生已通过转段考核将于2013年9月被东莞高职院录取。
+    </p>
+<h4>【就业优势明显】</h4>
+    <p>
+      学校专业依托本地产业需求开设，就业前景好，毕业生常年供不应求。学校拥有包括惠州三星、TCL、LG集团等全球五百强企业在内的近200家企业组成的庞大的实习就业基地群，每年为学校提供大量优质就业岗位，就业率超过98%。两校区办学历史悠久，60000多校友遍布各行各业，其中包括为数不少的党政机关高级干部、著名企业家等，行业精英、管理、技术能手更是不可胜数。他们是学校的骄傲，是学友们的楷模。他们成功创业、立业的经历和经验，成为助力一批批学子走向成功的宝贵资源。
+    </p>
+    	</div>
+    </div>
+</div>
+<script type="text/javascript">
+<!--
+$(function(){
+  $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+  $("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
+  $("#pwdconfirm").formValidator({onshow:"请输入确认密码",onfocus:"密码应该为6-20位之间",oncorrect:"密码一致"}).compareValidator({desid:"password",operateor:"=",onerror:"两次密码不一致"});
+
+  // {$formValidator}
+
+  // {if !isset($_GET['modelid']) && !isset($_GET['t']) && !empty($member_setting['showregprotocol'])}
+  //   show_protocol();
+  // {/if}
+});
+
+$(function () {
+    $('.button-checkbox').each(function () {
+
+        // Settings
+        var $widget = $(this),
+            $button = $widget.find('button'),
+            $checkbox = $widget.find('input:checkbox'),
+            color = $button.data('color'),
+            settings = {
+                on: {
+                    icon: 'glyphicon glyphicon-check'
+                },
+                off: {
+                    icon: 'glyphicon glyphicon-unchecked'
+                }
+            };
+
+        // Event Handlers
+        $button.on('click', function () {
+            $checkbox.prop('checked', !$checkbox.is(':checked'));
+            $checkbox.triggerHandler('change');
+            updateDisplay();
+        });
+        $checkbox.on('change', function () {
+            updateDisplay();
+        });
+
+        // Actions
+        function updateDisplay() {
+            var isChecked = $checkbox.is(':checked');
+
+            // Set the button's state
+            $button.data('state', (isChecked) ? "on" : "off");
+
+            // Set the button's icon
+            $button.find('.state-icon')
+                .removeClass()
+                .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+            // Update the button's color
+            if (isChecked) {
+                $button
+                    .removeClass('btn-default')
+                    .addClass('btn-' + color + ' active');
+            }
+            else {
+                $button
+                    .removeClass('btn-' + color + ' active')
+                    .addClass('btn-default');
+            }
+        }
+
+        // Initialization
+        function init() {
+
+            updateDisplay();
+
+            // Inject the icon if applicable
+            if ($button.find('.state-icon').length == 0) {
+                $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i>');
+            }
+        }
+        init();
+    });
+});
+</script>
+</body>
+</html>

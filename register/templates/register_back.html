@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+
+{% load staticfiles %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>学员注册</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/formvalidator.js' %}" charset="UTF-8"></script> 
+    <script type="text/javascript" src="{% static 'js/formvalidatorregex.js' %}" charset="UTF-8"></script>
+  </head>
+
+  <style type="text/css">
+  .input-group{
+      width: 100%;
+  }
+
+  .input-group-addon{
+      width: 25%;
+      text-align: center; 
+/*      background-color: #337ab7;
+      background-border: #337ab7;*/
+      background-color: #5bc0de;
+      background-border: #5bc0de;
+      color: #fff;
+      border-radius: 5px;
+  }
+  .form-control {
+      width: 75%; 
+  }
+ 
+
+  th {
+    background-color: #5bc0de;
+    width: 25%;
+    color:#fff;
+    text-align: center;
+  }
+
+</style>
+<script language="JavaScript">
+<!--
+$(function(){
+  $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+
+  // $("#username").formValidator({onshow:"{L('input').L('username')}",onfocus:"{L('username').L('between_2_to_20')}"}).inputValidator({min:2,max:20,onerror:"{L('username').L('between_2_to_20')}"}).regexValidator({regexp:"ps_username",datatype:"enum",onerror:"{L('username').L('format_incorrect')}"}).ajaxValidator({
+  //     type : "get",
+  //   url : "",
+  //   data :"m=member&c=index&a=public_checkname_ajax",
+  //   datatype : "html",
+  //   async:'false',
+  //   success : function(data){
+  //           if( data == "1" ) {
+  //               return true;
+  //     } else {
+  //               return false;
+  //     }
+  //   },
+  //   buttons: $("#dosubmit"),
+  //   onerror : "{L('deny_register').L('or').L('user_already_exist')}",
+  //   onwait : "{L('connecting_please_wait')}"
+  // });
+  $("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"}).regexValidator({regexp:"password",datatype:"enum",onerror:"密码只能是数字,字母 和 -_()等字符"});
+  $("#pwdconfirm").formValidator({onshow:"请输入确认密码",onfocus:"密码应该为6-20位之间",oncorrect:"密码一致"}).compareValidator({desid:"password",operateor:"=",onerror:"两次密码不一致"});
+  // $("#email").formValidator({onshow:"{L('input').L('email')}",onfocus:"{L('email').L('format_incorrect')}",oncorrect:"{L('email').L('format_right')}"}).inputValidator({min:7,max:32,onerror:"{L('email').L('between_7_to_32')}"}).regexValidator({regexp:"email",datatype:"enum",onerror:"{L('email').L('format_incorrect')}"}).ajaxValidator({
+  //     type : "get",
+  //   url : "",
+  //   data :"m=member&c=index&a=public_checkemail_ajax",
+  //   datatype : "html",
+  //   async:'false',
+  //   success : function(data){ 
+  //           if( data == "1" ) {
+  //               return true;
+  //     } else {
+  //               return false;
+  //     }
+  //   },
+  //   buttons: $("#dosubmit"),
+  //   onerror : "{L('deny_register').L('or').L('email_already_exist')}",
+  //   onwait : "{L('connecting_please_wait')}"
+  // });
+  // $("#nickname").formValidator({onshow:"{L('input').L('nickname')}",onfocus:"{L('nickname').L('between_2_to_20')}"}).inputValidator({min:2,max:20,onerror:"{L('nickname').L('between_2_to_20')}"}).regexValidator({regexp:"ps_username",datatype:"enum",onerror:"{L('nickname').L('format_incorrect')}"}).ajaxValidator({
+  //     type : "get",
+  //     url : "",
+  //     data :"m=member&c=index&a=public_checknickname_ajax",
+  //     datatype : "html",
+  //     async:'false',
+  //     success : function(data){
+  //       if( data == "1" ) {
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
+  //     },
+  //     buttons: $("#dosubmit"),
+  //     onerror : "{L('already_exist').L('already_exist')}",
+  //     onwait : "{L('connecting_please_wait')}"
+  //   });
+
+  // $(":checkbox[name='protocol']").formValidator({tipid:"protocoltip",onshow:"{L('read_protocol')}",onfocus:"{L('read_protocol')}"}).inputValidator({min:1,onerror:"{L('read_protocol')}"});
+  
+  // {if $member_setting['mobile_checktype']=='2' && $sms_setting['sms_enable']=='1'}
+  // $("#mobile").formValidator({onshow:"请输入手机号码",onfocus:"请输入手机号码"}).inputValidator({min:1,max:11,onerror:"请输入正确的手机号码"});
+  // {/if}
+  // $("#mobile_verify").formValidator({onshow:"请输入手机收到的验证码",onfocus:"请输入手机收到的验证码"}).inputValidator({min:1,onerror:"请输入手机收到的验证码"}).ajaxValidator({
+  //         type : "get",
+  //         url : "api.php",
+  //         data :"op=sms_idcheck&action=id_code",
+  //         datatype : "html",
+  //         {if $member_setting['mobile_checktype']=='2'}
+  //         getdata:{mobile:"mobile"},
+  //         {/if}
+  //         async:"false",
+  //         success : function(data){
+  //           if( data == "1" ) {
+  //             return true;
+  //           } else {
+  //               return false;
+  //           }
+  //         },
+  //         buttons: $("#dosubmit"),
+  //         onerror : "验证码错误",
+  //         onwait : "请稍候..."
+  //       });
+
+  {$formValidator}
+
+  // {if !isset($_GET['modelid']) && !isset($_GET['t']) && !empty($member_setting['showregprotocol'])}
+  //   show_protocol();
+  // {/if}
+});
+
+// function show_protocol() {
+//   art.dialog({lock:false,title:'{L('register_protocol')}',id:'protocoliframe', iframe:'?m=member&c=index&a=register&protocol=1',width:'500',height:'310',yesText:'{L('agree')}'}, function(){
+//     $("#protocol").attr("checked",true);
+//   });
+// }
+
+
+</script>
+  <body>
+      <div class='container' >
+      <div class="col-sm-6 col-sm-offset-3" > <!-- Move columns to the right using .col-md-offset-* classes. -->
+
+
+        
+        <form method="post" action="/register/signup">
+          {% csrf_token %}
+          <div class="input-group">
+            <span class="input-group-addon primary" id="sizing-addon1"> 用户名 </span>
+              <input type="text" id = "user_name" name= "user_name" class="form-control" placeholder="用户名" aria-describedby="sizing-addon1">
+            </span>
+            </div>
+          <br/>
+
+          <div class="input-group">
+            <span class="input-group-addon primary" id="sizing-addon1"> 学号 </span>
+              <input type="text" id = "uid" name= "uid" class="form-control" placeholder="学号" aria-describedby="sizing-addon1">
+            </span>
+          </div>
+          <br/>
+
+
+          <div class="input-group">
+            <span class="input-group-addon primary" id="sizing-addon1"> 密码 </span>
+              <input type="password" id = "password" name= "password" class="form-control" placeholder="密码" aria-describedby="sizing-addon1">
+            </span>
+          </div>
+          <br/>
+
+          <div class="input-group">
+            <span class="input-group-addon primary" id="sizing-addon1"> 确认密码 </span>
+              <input type="password" id = pwdconfirm name= "pwdconfirm" class="form-control" placeholder="确认密码" aria-describedby="sizing-addon1">
+            </span>
+          </div>
+          <br/>
+            
+          <div class="input-group">
+            <span class="input-group-addon primary" id="sizing-addon1"> 邮箱 </span>
+              <input type="email" id = "email" name= "email" class="form-control" placeholder="邮箱" aria-describedby="sizing-addon1">
+            </span>
+          </div>
+          <br/>
+
+          <div class="form-group">
+            <label for="inputPassword" class="control-label">Password</label>
+            <div class="form-inline row">
+              <div class="form-group col-sm-6">
+                <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                <div class="help-block">Minimum of 6 characters</div>
+              </div>
+          
+              <div class="form-group col-sm-6">
+                <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+                <div class="help-block with-errors"></div>
+              </div>
+            </div>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary btn-lg btn-block">提交</button>
+        </form>
+
+      </div>
+    </div>
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>-->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  
+
+
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>教师注册</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{%static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/bootsnipp.min.css' %}" rel="stylesheet">    
+    <style type="text/css">
+        /* Credit to bootsnipp.com for the css for the color graph */
+.colorgraph {
+  height: 5px;
+  border-top: 0;
+  background: #c4e17f;
+  border-radius: 5px;
+  background-image: -webkit-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -moz-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: -o-linear-gradient(left, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+  background-image: linear-gradient(to right, #c4e17f, #c4e17f 12.5%, #f7fdca 12.5%, #f7fdca 25%, #fecf71 25%, #fecf71 37.5%, #f0776c 37.5%, #f0776c 50%, #db9dbe 50%, #db9dbe 62.5%, #c49cde 62.5%, #c49cde 75%, #669ae1 75%, #669ae1 87.5%, #62c2e4 87.5%, #62c2e4);
+}
+    </style>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/formvalidator.js' %}" charset="UTF-8"></script> 
+    <script type="text/javascript" src="{% static 'js/formvalidatorregex.js' %}" charset="UTF-8"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-fixed-top navbar-bootsnipp animate" role="navigation" style="z-index: 9999999">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="true">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="animbrand">
+        <a class="navbar-brand animate" href="/">教师评分系统</a>
+      </div>
+    </div>
+<script src="/js/BSAcpc.js" async=""></script>
+<div class="bsa-apiads hidden-sm hidden-xs"></div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="navbar-collapse collapse out" id="bs-example-navbar-collapse-2" aria-expanded="false" style="">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="/" >主页 </a>  
+          <a href="/rating" >评分 </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</nav>
+<div class="container">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form method="post" action="/register/signup" role="form">
+        {% csrf_token %}
+			<h2>学员注册<small></small></h2>
+			<hr class="colorgraph">
+			<!-- <div class="row"> -->
+				<!-- <div class="col-xs-12 col-sm-6 col-md-6"> -->
+          <div class="form-group">
+            <input type="text" name="class_num" id="class_num" class="form-control input-lg" placeholder="班级" tabindex="1">
+          </div>         
+					<div class="form-group">
+            <input type="text" name="school_num" id="school_num" class="form-control input-lg" placeholder="学号" tabindex="1">
+					</div>
+          <div class="form-group">
+            <input type="text" name="fullname" id="fullname" class="form-control input-lg" placeholder="姓名" tabindex="1">
+          </div>          
+                       
+				<!-- </div> -->
+			<!-- </div> -->
+			<div class="form-group">
+				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="邮箱地址" tabindex="4">
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="password" id="password" class="form-control input-lg" placeholder="密码" tabindex="5">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="pwdconfirm" id="pwdconfirm" class="form-control input-lg" placeholder="确认密码" tabindex="6">
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-4 col-sm-3 col-md-3">
+					<span class="button-checkbox">
+						<button type="button" class="btn" data-color="info" tabindex="7">我同意</button>
+                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+					</span>
+				</div>
+				<div class="col-xs-8 col-sm-9 col-md-9">
+					 点击 <strong class="label label-primary">注册</strong>表明您同意 <a href="#" data-toggle="modal" data-target="#t_and_c_m">本网站阐述的用户注册协议</a>。
+				</div>
+			</div>
+			
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-md-6"><input type="submit" value="注册" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+				<div class="col-xs-12 col-md-6"><a href="/login" class="btn btn-success btn-block btn-lg">登录</a></div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+				<h4 class="modal-title" id="myModalLabel">用户注册协议</h4>
+			</div>
+			<div class="modal-body">
+                {% block content %}
+                <h1>         欢迎您注册成为 教师评分系统 用户 </h1>
+<p>请仔细阅读下面的协议，只有接受协议才能继续进行注册。</p>
+<h2>1．服务条款的确认和接纳</h2>
+    教师评分系统用户服务的所有权和运作权归教师评分系统拥有。教师评分系统所提供的服务将按照有关章程、服务条款和操作规则严格执行。用户通过注册程序点击“我同意” 按钮，即表示用户与教师评分系统达成协议并接受所有的服务条款。
+<h2>2． 教师评分系统服务简介</h2>
+<p>
+教师评分系统通过国际互联网为用户提供新闻及文章浏览、图片浏览、软件下载、网上留言和BBS论坛等服务。<br/>
+用户必须： <br/>
+1)购置设备，包括个人电脑一台、调制解调器一个及配备上网装置。 <br/>
+2)个人上网和支付与此服务有关的电话费用、网络费用。<br/>
+用户同意： <br/>
+1)提供及时、详尽及准确的个人资料。 <br/>
+2)不断更新注册资料，符合及时、详尽、准确的要求。所有原始键入的资料将引用为注册资料。 <br/>
+3)用户同意遵守《中华人民共和国保守国家秘密法》、《中华人民共和国计算机信息系统安全保护条例》、《计算机软件保护条例》等有关计算机及互联网规定的法律和法规、实施办法。在任何情况下，教师评分系统合理地认为用户的行为可能违反上述法律、法规，教师评分系统可以在任何时候，不经事先通知终止向该用户提供服务。用户应了解国际互联网的无国界性，应特别注意遵守当地所有有关的法律和法规。</p>
+<h2>3． 服务条款的修改</h2>
+　　教师评分系统会不定时地修改服务条款，服务条款一旦发生变动，将会在相关页面上提示修改内容。如果您同意改动，则再一次点击“我同意”按钮。 如果您不接受，则及时取消您的用户使用服务资格。
+<h2>4． 服务修订</h2>
+　　教师评分系统保留随时修改或中断服务而不需知照用户的权利。教师评分系统行使修改或中断服务的权利，不需对用户或第三方负责。
+<h2>5． 用户隐私制度</h2>
+　　尊重用户个人隐私是教师评分系统的 基本政策。教师评分系统不会公开、编辑或透露用户的注册信息，除非有法律许可要求，或教师评分系统在诚信的基础上认为透露这些信息在以下三种情况是必要的： <br/>
+　　1)遵守有关法律规定，遵从合法服务程序。<br/> 
+　　2)保持维护教师评分系统的商标所有权。 <br/>
+　　3)在紧急情况下竭力维护用户个人和社会大众的隐私安全。<br/> 
+　　4)符合其他相关的要求。 
+<h2>6．用户的帐号，密码和安全性</h2>
+　　一旦注册成功成为教师评分系统用户，您将得到一个密码和帐号。如果您不保管好自己的帐号和密码安全，将对因此产生的后果负全部责任。另外，每个用户都要对其帐户中的所有活动和事件负全责。您可随时根据指示改变您的密码，也可以结束旧的帐户重开一个新帐户。用户同意若发现任何非法使用用户帐号或安全漏洞的情况，立即通知教师评分系统。
+<h2>7． 免责条款</h2>
+　　用户明确同意网站服务的使用由用户个人承担风险。 　　 
+　　教师评分系统不作任何类型的担保，不担保服务一定能满足用户的要求，也不担保服务不会受中断，对服务的及时性，安全性，出错发生都不作担保。用户理解并接受：任何通过教师评分系统服务取得的信息资料的可靠性取决于用户自己，用户自己承担所有风险和责任。 
+<h2>8．有限责任</h2>
+　　教师评分系统对任何直接、间接、偶然、特殊及继起的损害不负责任。
+<h2>9． 不提供零售和商业性服务 </h2>
+　　用户使用网站服务的权利是个人的。用户只能是一个单独的个体而不能是一个公司或实体商业性组织。用户承诺不经教师评分系统同意，不能利用网站服务进行销售或其他商业用途。
+<h2>10．用户责任 </h2>
+　　用户单独承担传输内容的责任。用户必须遵循： <br/>
+　　1)从中国境内向外传输技术性资料时必须符合中国有关法规。 <br/>
+　　2)使用网站服务不作非法用途。 <br/>
+　　3)不干扰或混乱网络服务。 <br/>
+　　4)不在论坛BBS或留言簿发表任何与政治相关的信息。 <br/>
+　　5)遵守所有使用网站服务的网络协议、规定、程序和惯例。<br/>
+　　6)不得利用本站危害国家安全、泄露国家秘密，不得侵犯国家社会集体的和公民的合法权益。<br/>
+　　7)不得利用本站制作、复制和传播下列信息： <br/>
+　　　a、煽动抗拒、破坏宪法和法律、行政法规实施的；<br/>
+　　　b、煽动颠覆国家政权，推翻社会主义制度的；<br/>
+　　　c、煽动分裂国家、破坏国家统一的；<br/>
+　　　d、煽动民族仇恨、民族歧视，破坏民族团结的；<br/>
+　　　e、捏造或者歪曲事实，散布谣言，扰乱社会秩序的；<br/>
+　　　f、宣扬封建迷信、淫秽、色情、赌博、暴力、凶杀、恐怖、教唆犯罪的；<br/>
+　　　g、公然侮辱他人或者捏造事实诽谤他人的，或者进行其他恶意攻击的；<br/>
+　　　h、损害国家机关信誉的；<br/>
+　　　i、其他违反宪法和法律行政法规的；<br/>
+　　　j、进行商业广告行为的。<br/>
+　　用户不能传输任何教唆他人构成犯罪行为的资料；不能传输长国内不利条件和涉及国家安全的资料；不能传输任何不符合当地法规、国家法律和国际法 律的资料。未经许可而非法进入其它电脑系统是禁止的。若用户的行为不符合以上的条款，教师评分系统将取消用户服务帐号。
+<h2>11．网站内容的所有权</h2>
+　　教师评分系统定义的内容包括：文字、软件、声音、相片、录象、图表；在广告中全部内容；电子邮件的全部内容；教师评分系统为用户提供的商业信息。所有这些内容受版权、商标、标签和其它财产所有权法律的保护。所以，用户只能在教师评分系统和广告商授权下才能使用这些内容，而不能擅自复制、篡改这些内容、或创造与内容有关的派生产品。
+<h2>12．附加信息服务</h2>
+　　用户在享用教师评分系统提供的免费服务的同时，同意接受教师评分系统提供的各类附加信息服务。
+<h2>13．解释权</h2>
+　　<p>本注册协议的解释权归教师评分系统所有。如果其中有任何条款与国家的有关法律相抵触，则以国家法律的明文规定为准。</p>
+
+                {% endblock content %}
+
+            </div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</div>
+<script type="text/javascript">
+<!--
+$(function(){
+  $.formValidator.initConfig({autotip:true,formid:"myform",onerror:function(msg){}});
+  $("#password").formValidator({onshow:"请输入密码",onfocus:"密码应该为6-20位之间"}).inputValidator({min:6,max:20,onerror:"密码应该为6-20位之间"});
+  $("#pwdconfirm").formValidator({onshow:"请输入确认密码",onfocus:"密码应该为6-20位之间",oncorrect:"密码一致"}).compareValidator({desid:"password",operateor:"=",onerror:"两次密码不一致"});
+  $("#fullname").formValidator({onshow:"请输入全名",onfocus:"如：陈小明"}).inputValidator({min:6,max:20,onerror:"至少两个中文字"});
+  $("#school_num").formValidator({onshow:"请输入学号",onfocus:"如：20170001"}).inputValidator({min:6,max:20,onerror:"输入有误"});
+  $("#class_num").formValidator({onshow:"请输入班级",onfocus:"如：工科01班"}).inputValidator({min:2,max:10,onerror:"输入有误"});
+  $("#email").formValidator({onshow:"请输入邮箱",onfocus:""}).inputValidator({min:6,max:20,onerror:"至少两个中文字"});
+
+  // $("#pwdconfirm").formValidator({onshow:"请输入确认密码",onfocus:"密码应该为6-20位之间",oncorrect:"密码一致"}).compareValidator({desid:"password",operateor:"=",onerror:"两次密码不一致"});
+  // {$formValidator}
+
+  // {if !isset($_GET['modelid']) && !isset($_GET['t']) && !empty($member_setting['showregprotocol'])}
+  //   show_protocol();
+  // {/if}
+});
+
+$(function () {
+    $('.button-checkbox').each(function () {
+
+        // Settings
+        var $widget = $(this),
+            $button = $widget.find('button'),
+            $checkbox = $widget.find('input:checkbox'),
+            color = $button.data('color'),
+            settings = {
+                on: {
+                    icon: 'glyphicon glyphicon-check'
+                },
+                off: {
+                    icon: 'glyphicon glyphicon-unchecked'
+                }
+            };
+
+        // Event Handlers
+        $button.on('click', function () {
+            $checkbox.prop('checked', !$checkbox.is(':checked'));
+            $checkbox.triggerHandler('change');
+            updateDisplay();
+        });
+        $checkbox.on('change', function () {
+            updateDisplay();
+        });
+
+        // Actions
+        function updateDisplay() {
+            var isChecked = $checkbox.is(':checked');
+
+            // Set the button's state
+            $button.data('state', (isChecked) ? "on" : "off");
+
+            // Set the button's icon
+            $button.find('.state-icon')
+                .removeClass()
+                .addClass('state-icon ' + settings[$button.data('state')].icon);
+
+            // Update the button's color
+            if (isChecked) {
+                $button
+                    .removeClass('btn-default')
+                    .addClass('btn-' + color + ' active');
+            }
+            else {
+                $button
+                    .removeClass('btn-' + color + ' active')
+                    .addClass('btn-default');
+            }
+        }
+
+        // Initialization
+        function init() {
+
+            updateDisplay();
+
+            // Inject the icon if applicable
+            if ($button.find('.state-icon').length == 0) {
+                $button.prepend('<i class="state-icon ' + settings[$button.data('state')].icon + '"></i>');
+            }
+        }
+        init();
+    });
+});
+</script>
+</body>
+</html>
